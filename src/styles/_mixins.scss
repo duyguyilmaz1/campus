@@ -13,3 +13,7 @@
     -ms-transition: $t;
     -o-transition: $t;
 }
+
+@mixin borderRadius($t){
+    border-radius: $t;
+}

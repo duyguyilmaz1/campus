@@ -1,13 +1,14 @@
 //_variables gibi alt çizgili bir dosya oluşturmanın mantığı bunları module olarak değerlendirir,
 //ayrı bir dosya olarak değerlendirmez. yani aslında sadece değer sakladığımız bir class, 
-// stil dosyası değil _ ile oluşturduğumuz still dosyaları. yardımcı dosya olarak düşünebiliriz. 
+//stil dosyası değil _ ile oluşturduğumuz still dosyaları. yardımcı dosya olarak düşünebiliriz. 
 //bunlar için ayrı scss classı oluşturmaz
 //burada web sitemizde kullanacağımız renkleri tanımlarız. 
-// bu class index.scss te import edilir. 
+//bu class index.scss te import edilir. 
 
 $color1: rgb(249, 213, 67);
 $color2: rgb(56, 49, 38);
 $color3: rgb(237, 237, 237);
+$color1-opacity-50: rgb(249, 212, 67, 0.5);
 
 $primary: $color1; // burada websitesnin 1. ve 2. rengini setliyoruz. 
 $secondary: $color2;
