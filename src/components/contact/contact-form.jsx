@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import ButtonSpinner from "../common/button-spinner";
 import { createMessage } from "../../api/contact-service";
 import { swalAlert } from "../../helpers/swal";
-
+import "./contact-form.scss"
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
