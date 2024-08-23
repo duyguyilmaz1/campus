@@ -6,10 +6,17 @@ import ButtonSpinner from '../common/button-spinner'
 import PasswordInput from '../common/password-input'
 import { login } from '../../api/auth-service'
 import { setLocalStorage } from '../../helpers/encrypted-storage'
+import { useDispatch } from 'react-redux'
+import { login as loginSuccess } from "../../store/slices/auth-slice"
+import { useNavigate } from 'react-router-dom'
+import { swalAlert } from "../../helpers/swal";
+
 
 const LoginForm = () => {
 
     const [loading, setLoading] = useState(false);
+    const dispatch= useDispatch();
+    const navigate= useNavigate();
 
     const initialValues={
         username:"roo",
@@ -30,16 +37,18 @@ const LoginForm = () => {
             const {token}= user;
             // tokenı local storage e yerleştir
             setLocalStorage("token", token);
-
-            // merkezi state i güncelle
+            // merkezi state i güncelle: slider ekledik
+            // dispatch(login(user))
+            dispatch(loginSuccess(user))
             // navigate
+            navigate("/dashboard")
 
-        } catch (error) {
-            
+        } catch (err) {
+            const errMsg= err.response.data.message;
+            swalAlert(errMsg, "error")
         }finally{
             setLoading(false)
         }
-
     }
 
     const formik= useFormik({

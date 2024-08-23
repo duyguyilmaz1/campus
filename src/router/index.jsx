@@ -6,6 +6,12 @@ import CoursesPage from "../pages/courses-page";
 import AboutPage from "../pages/about-page";
 import ContactPage from "../pages/contact-page";
 import LoginPage from "../pages/login-page";
+import DashboardPage from "../pages/dashboard/dashboard-page";
+import AdminPage from "../pages/dashboard/admin-page";
+import PrivateRoute from "./private-route";
+import { config } from "../helpers/config";
+import Error403 from "../pages/errors/error403"
+import Error404 from "../pages/errors/error404"
 
 
 const router= createBrowserRouter([
@@ -36,8 +42,29 @@ const router= createBrowserRouter([
             {
                 path: "login",
                 element: <LoginPage/>
+            },
+            {
+                path:"dashboard",
+                children:[{
+                    index:true,
+                    element:<PrivateRoute roles={config.pageRoles.dashboard}><DashboardPage/></PrivateRoute>
+                },
+                {
+                    path:"admin-management",
+                    element:<PrivateRoute roles={config.pageRoles.adminManagement}><AdminPage/></PrivateRoute>
+                }
+            ]
+            },
+            {
+                path:"unauthorized",
+                element:<Error403/>
+            },
+            {
+                path:"*",
+                element:<Error404/>
             }
-        ] // UserLayout'un cocuklarını yazıyoruz. 
+
+        ] 
     }
 ]);
 
