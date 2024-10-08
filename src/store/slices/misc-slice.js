@@ -11,14 +11,14 @@ const miscSlice = createSlice({
   name: "misc",
   initialState,
   reducers: {
-    setOperation: (state, action) => { //disardan hangi operationi degistirmek istedigimizi actio ile gonderiyoruz 
+    setOperation: (state, action) => { //disardan hangi operationi degistirmek istedigimizi action ile gonderiyoruz 
       state.currentOperation = action.payload;
     },
     refreshToken: (state) => { // yeni admin eklendiginde admin-listin refresh edilerek yeni adminin eklenmisni ve silindiginde silinmeisni saglamak icin olusturudk 
       state.listRefreshToken = Math.random();
     },
 
-    setRecord: (state, action) => { 
+    setRecord: (state, action) => { // varolan kaydı günceller, action.payload kaydı değiştirmeye yarar
       state.currentRecord = action.payload;
     },
   },
