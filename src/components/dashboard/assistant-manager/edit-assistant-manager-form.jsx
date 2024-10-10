@@ -11,7 +11,6 @@ import {
 } from "react-bootstrap";
 import ButtonSpinner from "../../common/button-spinner";
 import { useDispatch, useSelector } from "react-redux";
-import { updateManager } from "../../../api/manager-service";
 import { useFormik } from "formik";
 import { refreshToken, setOperation } from "../../../store/slices/misc-slice";
 import { swalAlert } from "../../../helpers/swal";
