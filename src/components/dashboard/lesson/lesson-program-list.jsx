@@ -75,7 +75,7 @@ const LessonProgramList = () => {
     );
   };
 
-  const getLessonNames = (row) => {
+  const getLessonNames = (row) => { //lessonName dizi olarak geliyor o sebeple özel kod yazdık böyle tek tek alalım diye String olarak, aralarına da - ekledik. 
     return row.lessonName.map((item) => item.lessonName).join("-");
   };
 
