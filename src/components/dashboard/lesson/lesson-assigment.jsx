@@ -22,7 +22,7 @@ import { refreshToken } from "../../../store/slices/misc-slice";
 const LessonAssignment = () => {
 
   const [loading, setLoading] = useState(true);
-  const [loadingAssign, setLoadingAssign] = useState(false);
+  const [loadingAssign, setLoadingAssign] = useState(false); //butona başınca loading başlayacak, aşağıdaki button ile ilişkilendirdik.
   const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [selectedTeacher, setSelectedTeacher] = useState(null); //backenden aldigimiz ogretmenlerle dolduracagiz 
   const [teachers, setTeachers] = useState([]);
@@ -64,7 +64,7 @@ const LessonAssignment = () => {
 
       await assignTeacherToProgram(payload);
       swalAlert("Assignment was completed", "success");
-      setSelectedPrograms([]); 
+      setSelectedPrograms([]);
       dispatch(refreshToken()); //listeyi güncelledik
     } catch (err) {
       console.log(err);
